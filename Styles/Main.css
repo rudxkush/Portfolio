@@ -1,0 +1,660 @@
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#MainButton {
+    width: 7.5vh;
+    height: 7.5vh;
+    position: fixed;
+    right: 4vh;
+    bottom: 4vh;
+    color: white;
+    font-size: 3vh;
+    text-align: center;
+    background-color: black;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 50%;
+    transition: font-size 0.15s ease, transform 0.25s ease;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#MainButton:hover {
+    font-size: 4vh;
+}
+
+#MainDiv {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: rgb(15, 15, 15);
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(0%);
+    display: flex;
+}
+
+#MainDiv.hidden {
+    transform: translateY(100%);
+}
+
+/* Left Navigation Panel */
+
+#LeftPanel {
+    width: 320px;
+    min-width: 320px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 8vh 4vh;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgb(15, 15, 15);
+    pointer-events: auto;
+    z-index: 100;
+}
+
+.NavHeader {
+    margin-bottom: 6vh;
+}
+
+.NavName {
+    font-size: 2.4vh;
+    font-weight: 600;
+    margin: 0 0 1vh 0;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.NavRole {
+    font-size: 1.6vh;
+    font-weight: 500;
+    margin: 0;
+    color: #808080;
+    letter-spacing: 0.01em;
+}
+
+.NavContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4vh;
+}
+
+.NavItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 1.2vh 0;
+}
+
+.NavItemDot {
+    width: 1.2vh;
+    height: 1.2vh;
+    min-width: 1.2vh;
+    border-radius: 50%;
+    background-color: #505050;
+    transition: all 0.3s ease;
+}
+
+.NavItemText {
+    margin-left: 1.8vh;
+    font-size: 1.6vh;
+    font-weight: 500;
+    color: #707070;
+    transition: color 0.3s ease;
+    letter-spacing: 0.01em;
+}
+
+.NavItem:hover .NavItemDot {
+    background-color: #909090;
+}
+
+.NavItem:hover .NavItemText {
+    color: #b0b0b0;
+}
+
+.NavItem.Active .NavItemDot {
+    background-color: #ffffff;
+    transform: scale(1.4);
+}
+
+.NavItem.Active .NavItemText {
+    color: #ffffff;
+}
+
+/* Right Content Panel */
+
+#RightPanel {
+    margin-left: 320px;
+    width: calc(100vw - 320px);
+    height: 100vh;
+    padding: 8vh 8vw 0 8vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+    background-color: rgb(15, 15, 15);
+}
+
+#RightPanel::-webkit-scrollbar {
+    display: none;
+}
+
+#MouseGlow {
+    width: 30vmax;
+    height: 30vmax;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background-color: rgba(255, 167, 25, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#MouseGlowBlur {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    backdrop-filter: blur(12vmax);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hero Section */
+
+.HeroSection {
+    margin-bottom: 8vh;
+    padding-bottom: 4vh;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 10;
+}
+
+.MainHeading {
+    font-size: 5.6vh;
+    font-weight: 700;
+    margin: 0 0 1.5vh 0;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    pointer-events: auto;
+}
+
+.SubHeading {
+    font-size: 2.8vh;
+    font-weight: 500;
+    margin: 0 0 3.5vh 0;
+    color: #a0a0a0;
+    letter-spacing: -0.01em;
+    pointer-events: auto;
+}
+
+.AboutText {
+    font-size: 1.8vh;
+    margin: 0;
+    color: #909090;
+    line-height: 3vh;
+    max-width: 80ch;
+    pointer-events: auto;
+}
+/* Tools Icon Block*/
+.ToolBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.ToolBlock a {
+  display: inline-flex;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.ToolBlock a:hover {
+  transform: scale(1.2);
+  opacity: 0.85;
+}
+
+.ToolBlock img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+/* Section Styles */
+
+.Section {
+    margin-bottom: 10vh;
+    padding-bottom: 6vh;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    z-index: 10;
+}
+
+.Section:last-of-type {
+    border-bottom: none;
+}
+
+.SectionLabel {
+    font-size: 1.3vh;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #606060;
+    margin-bottom: 2.5vh;
+    pointer-events: auto;
+}
+
+.SectionHeading {
+    font-size: 3.2vh;
+    font-weight: 600;
+    margin: 0 0 3.5vh 0;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    pointer-events: auto;
+}
+
+p {
+    font-size: 1.8vh;
+    margin: 0 0 2.8vh 0;
+    color: #909090;
+    line-height: 3vh;
+    max-width: 85ch;
+    pointer-events: auto;
+}
+
+m {
+    font-weight: 500;
+    color: #c0c0c0;
+}
+
+.ExperienceBlock {
+    margin-bottom: 3.5vh;
+}
+
+.SkillBlock {
+    margin-bottom: 2.8vh;
+}
+
+/* Projects */
+
+.Project {
+    margin-bottom: 1.2vh;
+    padding: 2.2vh 2.8vh;
+    border-radius: 1.2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    max-width: 90ch;
+}
+
+.Project:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateX(0.8vh);
+}
+
+.ProjectContent {
+    flex: 1;
+}
+
+.ProjectTitle {
+    user-select: none;
+    font-size: 1.8vh;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.8vh 0;
+    line-height: 1.3;
+}
+
+.ProjectTech {
+    user-select: none;
+    font-size: 1.5vh;
+    color: #808080;
+    margin: 0;
+}
+
+.ProjectYear {
+    user-select: none;
+    font-size: 1.6vh;
+    color: #606060;
+    margin: 0;
+    margin-left: 3vh;
+    font-weight: 500;
+}
+
+/* Contact Links */
+
+.ContactLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    max-width: 60ch;
+}
+
+.ContactLink {
+    display: flex;
+    align-items: center;
+    gap: 2.5vh;
+    padding: 2vh 2.8vh;
+    border-radius: 1.2vh;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+    pointer-events: auto;
+}
+
+.ContactLink:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateX(0.8vh);
+}
+
+.ContactLink img {
+    width: 3vh;
+    height: 3vh;
+    filter: invert(100%) brightness(60%);
+    transition: filter 0.2s ease;
+}
+
+.ContactLink:hover img {
+    filter: invert(100%) brightness(100%);
+}
+
+.ContactLink span {
+    font-size: 1.8vh;
+    font-weight: 500;
+    color: #909090;
+    transition: color 0.2s ease;
+}
+
+.ContactLink:hover span {
+    color: #ffffff;
+}
+
+/* Footer */
+
+.Footer {
+    padding-top: 8vh;
+    padding-bottom: 20vh;
+    font-size: 1.5vh;
+    color: #606060;
+    line-height: 2.6vh;
+}
+
+/* Mobile Responsiveness */
+
+@media (max-width: 1024px) {
+    #LeftPanel {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        position: relative;
+        padding: 4vh 6vw;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .NavHeader {
+        margin-bottom: 3vh;
+    }
+
+    .NavName {
+        font-size: 3.2vh;
+    }
+
+    .NavRole {
+        font-size: 2vh;
+    }
+
+    .NavContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3vw;
+    }
+
+    .NavItem {
+        padding: 1vh 0;
+    }
+
+    .NavItemText {
+        font-size: 1.8vh;
+    }
+
+    #RightPanel {
+        margin-left: 0;
+        width: 100%;
+        padding: 4vh 6vw 0 6vw;
+    }
+
+    .HeroSection {
+        margin-bottom: 6vh;
+        padding-bottom: 3vh;
+    }
+
+    .MainHeading {
+        font-size: 5vh;
+    }
+
+    .SubHeading {
+        font-size: 2.6vh;
+    }
+
+    .AboutText {
+        font-size: 1.9vh;
+    }
+
+    .SectionHeading {
+        font-size: 3.4vh;
+    }
+
+    .Section {
+        margin-bottom: 8vh;
+    }
+
+    .Project {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2vh 2.2vh;
+    }
+
+    .ProjectYear {
+        margin-left: 0;
+        margin-top: 1vh;
+    }
+
+    .ContactLinks {
+        max-width: 100%;
+    }
+
+    .Footer {
+        padding-bottom: 15vh;
+    }
+
+    #MainButton {
+        right: 3vh;
+        bottom: 3vh;
+        width: 6vh;
+        height: 6vh;
+        font-size: 2.5vh;
+    }
+}
+
+@media (max-width: 768px) {
+    #LeftPanel {
+        padding: 3vh 5vw;
+    }
+
+    #RightPanel {
+        padding: 3vh 5vw 0 5vw;
+    }
+
+    .NavName {
+        font-size: 2.8vh;
+    }
+
+    .NavRole {
+        font-size: 1.8vh;
+    }
+
+    .MainHeading {
+        font-size: 4.5vh;
+    }
+
+    .SubHeading {
+        font-size: 2.2vh;
+    }
+
+    .AboutText {
+        font-size: 2vh;
+        line-height: 3.2vh;
+    }
+
+    p {
+        font-size: 2vh;
+        line-height: 3.2vh;
+    }
+
+    .SectionHeading {
+        font-size: 3vh;
+    }
+
+    .SectionLabel {
+        font-size: 1.2vh;
+    }
+
+    .NavContainer {
+        gap: 4vw;
+    }
+
+    .NavItemText {
+        font-size: 1.9vh;
+    }
+
+    .Project {
+        padding: 1.8vh 2vh;
+    }
+
+    .ProjectTitle {
+        font-size: 1.7vh;
+    }
+
+    .ProjectTech {
+        font-size: 1.4vh;
+    }
+
+    .ContactLink {
+        padding: 1.8vh 2.2vh;
+    }
+
+    #MainButton {
+        right: 2.5vh;
+        bottom: 2.5vh;
+        width: 5.5vh;
+        height: 5.5vh;
+        font-size: 2.2vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #LeftPanel {
+        padding: 2.5vh 4vw;
+    }
+
+    #RightPanel {
+        padding: 2.5vh 4vw 0 4vw;
+    }
+
+    .NavName {
+        font-size: 2.4vh;
+    }
+
+    .NavContainer {
+        gap: 3vw;
+    }
+
+    .NavItemText {
+        font-size: 1.6vh;
+        margin-left: 1.2vh;
+    }
+
+    .NavItemDot {
+        width: 1vh;
+        height: 1vh;
+        min-width: 1vh;
+    }
+
+    .MainHeading {
+        font-size: 4vh;
+    }
+
+    .SectionHeading {
+        font-size: 2.6vh;
+    }
+
+    .SectionLabel {
+        font-size: 1.1vh;
+        letter-spacing: 0.12em;
+    }
+
+    p {
+        font-size: 1.8vh;
+        line-height: 3vh;
+    }
+
+    .Project {
+        padding: 1.5vh 1.8vh;
+    }
+
+    .ProjectTitle {
+        font-size: 1.6vh;
+    }
+
+    .ContactLink {
+        padding: 1.6vh 2vh;
+        gap: 2vh;
+    }
+
+    .ContactLink img {
+        width: 2.5vh;
+        height: 2.5vh;
+    }
+
+    .ContactLink span {
+        font-size: 1.6vh;
+    }
+
+    #MainButton {
+        right: 2vh;
+        bottom: 2vh;
+        width: 5vh;
+        height: 5vh;
+        font-size: 2vh;
+    }
+}
