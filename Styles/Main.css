@@ -87,7 +87,7 @@ canvas {
     padding: 8vh 4vh;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
     background-color: rgb(15, 15, 15);
     pointer-events: auto;
     z-index: 100;
@@ -177,7 +177,7 @@ canvas {
     pointer-events: auto;
     position: relative;
     z-index: 10;
-    background-color: rgb(15, 15, 15);
+    background-color: transparent;
 }
 
 #RightPanel::-webkit-scrollbar {
