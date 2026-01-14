@@ -7,26 +7,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* #MouseGlow {
-    width: 30vmax;
-    height: 30vmax;
-    position: fixed;
-    /* Move these from the script to CSS for better performance */
-    top: 0;
-    left: 0;
-    /* Center the glow on the cursor */
-    transform: translate(-50%, -50%);
-    
-    /* Increase Z-index so it's above the panel backgrounds */
-    /* Use 'screen' or 'lighten' mix-blend-mode to make it look cool over text */
-    z-index: 5; 
-    background: radial-gradient(circle, rgba(255, 167, 25, 0.15) 0%, rgba(255, 167, 25, 0) 70%);
-    
-    border-radius: 50%;
-    pointer-events: none; /* Allows you to click buttons through the glow */
-    will-change: left, top;
-} */
-
 #MouseGlowBlur {
     display: none; /* You usually don't need this if you use the radial-gradient above */
 }
