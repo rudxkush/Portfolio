@@ -164,7 +164,7 @@ canvas {
     pointer-events: auto;
     position: relative;
     z-index: 10;
-    background-color: rgba(15,15,15,15);
+    background-color: transparent;
 }
 
 #RightPanel::-webkit-scrollbar {
