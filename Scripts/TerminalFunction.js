@@ -161,8 +161,8 @@ const FileSystem = {
             "graph.lnk": {type: "link", content: "https://github.com/rudxkush/Graph"},
             "tree.lnk": {type: "link", content: "https://github.com/rudxkush/Tree"},
             "round_robin.lnk": {type: "link", content: "https://github.com/rudxkush/RoundRobin"},
-            "worker_schedule_intersection.lnk": {type: "link", content: "https://github.com/rudxkush/WorkerScheduleIntersection"},
-            "multi-element_sum_finder.lnk": {type: "link", content: "https://github.com/rudxkush/multi-element-sum-finder"},
+            "Schedule Overlap.lnk": {type: "link", content: "https://github.com/rudxkush/WorkerScheduleIntersection"},
+            "K-Sum Finder.lnk": {type: "link", content: "https://github.com/rudxkush/multi-element-sum-finder"},
         }},
 
         "about.txt": {type: "file", content: "Rudra Pratap Singh Kushwah [cite: 1]\nSoftware Engineer | B.Tech CSE, KIIT (2025) [cite: 7, 41, 42]\nLanguages: C/C++, Python, Java, JS/TS, SQL, Swift, Dart [cite: 3]\nTools: AWS, Docker, Kubernetes, PyTorch, React, Node.js [cite: 4]\nPeak LeetCode Rating: 1900 (Top 2% globally) [cite: 38]\nSolved 550+ problems across CodeChef and LeetCode[cite: 37]."},
@@ -173,18 +173,40 @@ const FileSystem = {
     }},
 };
 // Error 404 not found.
-function ListFiles()
-{
-    // Move to current folder
-    let DirectoryContents = FileSystem.root;
-    for (let Dir of Directory.slice(15).split("/").filter(Boolean)) {DirectoryContents = DirectoryContents.contents[Dir];}
+function ListFiles() {
+    // 1. Resolve the current directory safely
+    let currentDirObj = FileSystem.root;
+    
+    // We remove "C:/Users/guest" and split the remaining path
+    const pathParts = Directory.replace("C:/Users/guest", "").split("/").filter(Boolean);
+    
+    for (let dir of pathParts) {
+        if (currentDirObj.contents && currentDirObj.contents[dir]) {
+            currentDirObj = currentDirObj.contents[dir];
+        }
+    }
 
-    // Print directory being listed
-    OutputsText += `\nC:/../${Directory.split("/").slice(-1)}`;
+    // 2. Header: Print the current folder name
+    const folderName = Directory.split("/").pop() || "root";
+    OutputsText += `\n Directory of ${folderName}:`;
 
-    // Print each file
-    const Files = Object.keys(DirectoryContents.contents);
-    for (let [Index, File] of Files.entries()) {OutputsText += `\n${Index == Files.length - 1 ? "┗" : "┣"}${File.includes(".") ? "━▷" : "━━━━"} ${File}`;}
+    // 3. Logic to print files with a retro tree structure
+    const files = Object.keys(currentDirObj.contents || {});
+    
+    if (files.length === 0) {
+        OutputsText += "\n ┗━━ (Empty)";
+    } else {
+        files.forEach((fileName, index) => {
+            const isLast = index === files.length - 1;
+            const prefix = isLast ? " ┗━" : " ┣━";
+            
+            // Retro distinction: Folders get a trailing slash or different arrow
+            const isFile = fileName.includes(".");
+            const pointer = isFile ? "▷ " : "▶ ";
+            
+            OutputsText += `\n${prefix}${pointer}${fileName}`;
+        });
+    }
 
     OutputsText += "\n\n";
 }
@@ -356,5 +378,6 @@ function GetIntensityPlasma(Row, Col)
 
     return 17 * (0.5 + 0.499 * Math.sin(Intensity)) * (0.7 + Math.sin(Time) * 0.3);
 }
+
 
 
