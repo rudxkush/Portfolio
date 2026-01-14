@@ -54,8 +54,8 @@ canvas {
 /* Left Navigation Panel */
 
 #LeftPanel {
-    width: 320px;
-    min-width: 320px;
+    width: 280px;
+    min-width: 280px;
     height: 100vh;
     position: fixed;
     left: 0;
