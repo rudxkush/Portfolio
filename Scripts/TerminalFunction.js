@@ -175,7 +175,7 @@ const FileSystem = {
         "experience.txt": {
             "type": "file", 
             "content": "Professional Software Engineer with a background in building high-impact solutions for global clients like Nestlé, ICICI Bank, and HDFC Bank.\nExpertise includes developing AI-driven Copilot extensions, architecting serverless pipelines on Azure, and optimizing PostgreSQL queries to reduce API latency by 40%.\nSkilled in modern DevOps practices using Docker, Kubernetes, and CI/CD, with a strong foundation in both SQL and NoSQL environments."
-        }
+        },
         "plasma.exe": {type: "executable", content: "plasma"},
     }},
 };
@@ -363,5 +363,6 @@ function GetIntensityPlasma(Row, Col)
 
     return 17 * (0.5 + 0.499 * Math.sin(Intensity)) * (0.7 + Math.sin(Time) * 0.3);
 }
+
 
 
