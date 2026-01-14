@@ -15,7 +15,18 @@
     </head>
 
     <body>
+        <div id="MouseGlow"></div>
+        <div id="MouseGlowBlur"></div>
 
+        <script>
+            const glow = document.getElementById('MouseGlow');
+            glow.style.left = '0px';
+            glow.style.top = '0px';
+            document.addEventListener('mousemove', function(e) {
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+            });
+        </script>
         <canvas id="Canvas3D"></canvas>
 
         <div id="MainDiv">
