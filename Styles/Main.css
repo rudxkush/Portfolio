@@ -6,9 +6,16 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-#MouseGlowBlur {
-    display: none; /* You usually don't need this if you use the radial-gradient above */
+#MouseGlow {
+    width: 40vmax;
+    height: 40vmax;
+    position: fixed;
+    background: radial-gradient(circle, rgba(255, 167, 25, 0.15) 0%, rgba(255, 167, 25, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none; /* Crucial: allows clicking through the glow */
+    z-index: 0; /* Keep it behind content */
+    transform: translate(-50%, -50%);
+    will-change: left, top; /* Optimizes performance */
 }
 
 canvas {
@@ -67,7 +74,7 @@ canvas {
     padding: 8vh 4vh;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
     background-color: rgb(15, 15, 15);
     pointer-events: auto;
     z-index: 100;
