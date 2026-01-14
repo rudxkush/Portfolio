@@ -6,6 +6,17 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+#MouseGlow {
+    width: 40vmax;
+    height: 40vmax;
+    position: fixed;
+    background: radial-gradient(circle, rgba(255, 167, 25, 0.15) 0%, rgba(255, 167, 25, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none; /* Crucial: allows clicking through the glow */
+    z-index: 0; /* Keep it behind content */
+    transform: translate(-50%, -50%);
+    will-change: left, top; /* Optimizes performance */
+}
 
 canvas {
     display: block;
