@@ -15,6 +15,22 @@
     </head>
 
     <body>
+        <script>
+            const glow = document.getElementById('MouseGlow');
+            
+            // Ensure the glow starts at 0,0
+            glow.style.left = '0px';
+            glow.style.top = '0px';
+        
+            document.addEventListener('mousemove', function(e) {
+                // Use requestAnimationFrame for high-performance UI updates
+                requestAnimationFrame(() => {
+                    // e.clientX/Y gets mouse position relative to the viewport
+                    glow.style.left = `${e.clientX}px`;
+                    glow.style.top = `${e.clientY}px`;
+                });
+            });
+        </script>
         <canvas id="Canvas3D"></canvas>
 
         <div id="MainDiv">
