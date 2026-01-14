@@ -151,21 +151,24 @@ function BootSequence()
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 // File system structure (unchanged)
+// File system structure (Updated with provided 2026 data)
 const FileSystem = {
     "root": {type: "directory", contents: {
 
         "projects": {type: "directory", contents: {
-            "projects.txt": {type: "file", content: "Below are some of the projects I have developed over\nthe years of coding. This is just a small selection\nof the many projects I've worked on, with several\nothers not making the list. Please note that some of\nthese projects are unfinished—either because I lacked\nthe necessary skills at the time or simply moved on to\nmore interesting challenges. However, rest assured I\nplan to revisit and polish these projects in the future\nimproving their code with my current level of expertise."},
-            "gpt-based_spam_detection_model.lnk": {type: "link", content: "https://github.com/rudxkush/gpt2-spam-classifier"},
-            "bothways.lnk": {type: "link", content: "https://github.com/rudxkush/Bothways-LL"},
+            "projects.txt": {type: "file", content: "Key technical projects focusing on NLP, systems\noptimization, and data structures. Highlights include\na scratch-built GPT model and optimized performance\nalgorithms[cite: 27, 30, 31]."},
+            "gpt_spam_classifier.lnk": {type: "link", content: "https://github.com/rudxkush/gpt2-spam-classifier"},
+            "graph.lnk": {type: "link", content: "https://github.com/rudxkush/Graph"},
+            "tree.lnk": {type: "link", content: "https://github.com/rudxkush/Tree"},
             "round_robin.lnk": {type: "link", content: "https://github.com/rudxkush/RoundRobin"},
-            "personal_website.lnk": {type: "link", content: "https://github.com/rudxkush/personal-website"},
-            "circular_queue_array.lnk": {type: "link", content: "https://github.com/rudxkush/circular-queue-array"},
+            "worker_schedule_intersection.lnk": {type: "link", content: "https://github.com/rudxkush/WorkerScheduleIntersection"},
             "multi-element_sum_finder.lnk": {type: "link", content: "https://github.com/rudxkush/multi-element-sum-finder"},
         }},
 
-        "about.txt": {type: "file", content: "Computer Science student at Kalinga Institute of Industrial Technology graduating in 2025.\n Experienced in C/C++, Python, and web development.\n Completed an internship at Rudder Soft Solution working with Flutter and databases.\n Built projects including a spam detection model and a student management system.\n Certified in problem solving, SQL, and cloud computing."},
-        "experience.txt": {type: "file", content: "Error 404 not found. That's right I have no\nprofessional in industry experience, however I still\nbring over 4 years of hands-on experience in coding\nand software development from personal projects and\nself-driven learning. I’ve tackled a wide range of\nchallenges, from developing gpt based spam\Classifier and machine learning models to creating\nweb applications. My projects have allowed\nme to build strong skills in Python, C++, JavaScript\n and I’ve gained a solid foundation in problem\nsolving, collaboration, and adaptability. I’m eager\nto apply my knowledge and passion for technology in\na professional setting, where I can continue to learn\nand grow as a software developer."},
+        "about.txt": {type: "file", content: "Rudra Pratap Singh Kushwah [cite: 1]\nSoftware Engineer | B.Tech CSE, KIIT (2025) [cite: 7, 41, 42]\nLanguages: C/C++, Python, Java, JS/TS, SQL, Swift, Dart [cite: 3]\nTools: AWS, Docker, Kubernetes, PyTorch, React, Node.js [cite: 4]\nPeak LeetCode Rating: 1900 (Top 2% globally) [cite: 38]\nSolved 550+ problems across CodeChef and LeetCode[cite: 37]."},
+        
+        "experience.txt": {type: "file", content: "INTECH SYSTEMS (2025):\n- Developed C# Copilot for Nestlé (40% efficiency boost) \n- Built serverless Python/Azure pipelines (10K+ records) [cite: 12]\n- Cut deployment time 30% via GitHub Actions & K8s [cite: 13]\n\nTRANSLAB TECHNOLOGIES (2023-2024):\n- Java/Spring Boot APIs for ICICI (2M+ users) [cite: 16]\n- Slashed latency 40% via SQL optimization [cite: 17]\n\nRUDDER SOFT (2024):\n- Optimized Flutter widget trees (25% faster render) [cite: 23]\n- Reduced query latency 20% via NoSQL/REST integration [cite: 24]"},
+        
         "plasma.exe": {type: "executable", content: "plasma"},
     }},
 };
@@ -353,4 +356,5 @@ function GetIntensityPlasma(Row, Col)
 
     return 17 * (0.5 + 0.499 * Math.sin(Intensity)) * (0.7 + Math.sin(Time) * 0.3);
 }
+
 
