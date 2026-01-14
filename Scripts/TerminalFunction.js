@@ -155,17 +155,27 @@ const FileSystem = {
     "root": {type: "directory", contents: {
 
         "projects": {type: "directory", contents: {
-            "projects.txt": {type: "file", content: "Below are some of the projects I have developed over\nthe years of coding. This is just a small selection\nof the many projects I've worked on, with several\nothers not making the list. Please note that some of\nthese projects are unfinished—either because I lacked\nthe necessary skills at the time or simply moved on to\nmore interesting challenges. However, rest assured I\nplan to revisit and polish these projects in the future\nimproving their code with my current level of expertise."},
-            "gpt-based_spam_detection_model.lnk": {type: "link", content: "https://github.com/rudxkush/gpt2-spam-classifier"},
-            "bothways.lnk": {type: "link", content: "https://github.com/rudxkush/Bothways-LL"},
+        "projects.txt": {
+        type: "file", 
+        content: "Over the years, I’ve worked on a variety of projects that reflect my learning and growth.\nSome were built during my college years, while others come from personal or professional work after graduation."
+        },
+            “gpt_spam_classifier.lnk": {type: "link", content: "https://github.com/rudxkush/gpt2-spam-classifier"},
+            “graph.lnk": {type: "link", content: "https://github.com/rudxkush/Graph"},
+            “Tree.lnk": {type: "link", content: "https://github.com/rudxkush/Tree"},
             "round_robin.lnk": {type: "link", content: "https://github.com/rudxkush/RoundRobin"},
-            "personal_website.lnk": {type: "link", content: "https://github.com/rudxkush/personal-website"},
-            "circular_queue_array.lnk": {type: "link", content: "https://github.com/rudxkush/circular-queue-array"},
+            “worker_schedule_intersection.lnk": {type: "link", content: "https://github.com/rudxkush/WorkerScheduleIntersection"},
             "multi-element_sum_finder.lnk": {type: "link", content: "https://github.com/rudxkush/multi-element-sum-finder"},
         }},
 
-        "about.txt": {type: "file", content: "Computer Science student at Kalinga Institute of Industrial Technology graduating in 2025.\n Experienced in C/C++, Python, and web development.\n Completed an internship at Rudder Soft Solution working with Flutter and databases.\n Built projects including a spam detection model and a student management system.\n Certified in problem solving, SQL, and cloud computing."},
-        "experience.txt": {type: "file", content: "Error 404 not found. That's right I have no\nprofessional in industry experience, however I still\nbring over 4 years of hands-on experience in coding\nand software development from personal projects and\nself-driven learning. I’ve tackled a wide range of\nchallenges, from developing gpt based spam\Classifier and machine learning models to creating\nweb applications. My projects have allowed\nme to build strong skills in Python, C++, JavaScript\n and I’ve gained a solid foundation in problem\nsolving, collaboration, and adaptability. I’m eager\nto apply my knowledge and passion for technology in\na professional setting, where I can continue to learn\nand grow as a software developer."},
+
+        "about.txt": {
+            "type": "file", 
+            "content": "Computer Science & Engineering graduate from Kalinga Institute of Industrial Technology (2025).\nExperienced Full Stack Developer and AI enthusiast proficient in C/C++, Python, Java, and TypeScript.\nProven track record in building scalable systems, from GPT-based NLP models to enterprise-grade fintech APIs.\nCompetitive programmer ranked in the Top 2% globally on LeetCode with 600+ problems solved."
+        },
+        "experience.txt": {
+            "type": "file", 
+            "content": "Professional Software Engineer with a background in building high-impact solutions for global clients like Nestlé, ICICI Bank, and HDFC Bank.\nExpertise includes developing AI-driven Copilot extensions, architecting serverless pipelines on Azure, and optimizing PostgreSQL queries to reduce API latency by 40%.\nSkilled in modern DevOps practices using Docker, Kubernetes, and CI/CD, with a strong foundation in both SQL and NoSQL environments."
+        }
         "plasma.exe": {type: "executable", content: "plasma"},
     }},
 };
@@ -353,4 +363,5 @@ function GetIntensityPlasma(Row, Col)
 
     return 17 * (0.5 + 0.499 * Math.sin(Intensity)) * (0.7 + Math.sin(Time) * 0.3);
 }
+
 
