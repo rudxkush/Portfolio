@@ -669,3 +669,58 @@ m {
         font-size: 2vh;
     }
 }
+
+/* --- Mobile Friendly Overrides --- */
+@media screen and (max-width: 900px) {
+    #MainDiv {
+        display: block; /* Changes from flex to block stacking */
+        overflow-y: auto; /* Allows scrolling on mobile */
+    }
+
+    #LeftPanel {
+        position: relative; /* Removes the fixed side position */
+        width: 100%;
+        height: auto;
+        padding: 40px 20px;
+        box-sizing: border-box;
+    }
+
+    #RightPanel {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: visible; /* Prevents double scrollbars */
+    }
+
+    /* Hide the dot navigation on mobile as it's hard to use/see */
+    #NavItems {
+        display: none;
+    }
+
+    /* Adjust the social icons for mobile spacing */
+    #SocialsContainer {
+        position: relative;
+        top: 0;
+        transform: none;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    /* Make Project entries easier to tap */
+    .Project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* Adjust the WebGL Canvas so it stays in background */
+    #Canvas3D {
+        position: fixed;
+        z-index: -1;
+    }
+    
+    /* Ensure the scroll button doesn't block content */
+    #MainButton {
+        display: none; /* Usually not needed on mobile touch screens */
+    }
+}
